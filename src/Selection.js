@@ -7,10 +7,28 @@ class Selection extends React.Component
         console.log(this.props.parent.state.cards);
         return (
             <div className="selection">
-                Selection
+                {this.getPriorGames()}
+                {this.getStarters()}
+                {this.getCustom()}
             </div>
         );
-    }
+    };
+
+    getPriorGames()
+    {
+        //To do
+    };
+
+    getStarters()
+    {
+        //To do
+    };
+
+    getCustom()
+    {
+        //To do
+        //Get Character List
+    };
 }
 
 export default Selection;

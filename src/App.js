@@ -33,6 +33,7 @@ class App extends React.Component
 
         return <Game 
             parent={this}
+            cards={this.state.cards}
         />;
     };
 
