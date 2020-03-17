@@ -18,7 +18,7 @@ class Game extends React.Component
         this.state = {
             dayCount: 0,
             currentStep: 1,
-            stotalSteps: props.cards.length + 1
+            totalSteps: props.cards.length + 1
         };
     }
 
