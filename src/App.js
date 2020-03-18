@@ -10,14 +10,18 @@ class App extends React.Component
         super(props);
         this.state = {
             step: 'game',
-            cards: [],
+            currentStep: 0,
+            cards: [0,0,0],
             history: []
         };
+
+        this.next = this.next.bind(this);
+        this.prev = this.prev.bind(this);
     };
 
     setupCards()
     {
-        console.log('Read data from JSON file');
+        // console.log('Read data from JSON file');
     };
 
     getStep()
@@ -33,8 +37,54 @@ class App extends React.Component
 
         return <Game 
             parent={this}
+            currentStep={this.state.currentStep}
             cards={this.state.cards}
+            next={this.next}
+            prev={this.prev}
         />;
+    };
+
+    toggle()
+    {
+        if(this.state.step === 'selection')
+        {
+            this.setState({
+                step: 'game'
+            });
+        }
+        else
+        {
+            this.setState({
+                step: 'selection'
+            })
+        }
+    }
+
+    addToggle()
+    {
+        return (
+            <button onClick={() => this.toggle()}>Change State</button>
+        );
+    }
+
+    next()
+    {
+        if(this.state.cards.length > this.state.currentStep)
+        {
+            this.setState({
+                currentStep: this.state.currentStep + 1
+            });
+        }
+    };
+
+    prev()
+    {
+        if(this.state.currentStep > 0)
+        {
+            this.setState({
+                currentStep: this.state.currentStep - 1
+            });
+        }
     };
 
     render()
@@ -42,6 +92,7 @@ class App extends React.Component
         this.setupCards();
         return (
             <div className="App">
+                {this.addToggle()}
                 {this.getStep()}
             </div>
         );

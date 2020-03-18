@@ -3,3 +3,19 @@
     min-height: 100vh;
     color: #fff;
 }
+
+.progress-bar {
+    margin: 8px 0;
+    height: 8px;
+    background-color: #EDF2F5;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    min-width: 2%;
+    top: 0;
+    bottom: 0;
+    transition: width .2s;
+    background-color: #3485b5;
+}

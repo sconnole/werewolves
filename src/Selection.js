@@ -4,9 +4,9 @@ class Selection extends React.Component
 {
     render()
     {
-        console.log(this.props.parent.state.cards);
         return (
             <div className="selection">
+                Selection
                 {this.getPriorGames()}
                 {this.getStarters()}
                 {this.getCustom()}
