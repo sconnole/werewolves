@@ -1,4 +1,6 @@
 import React from 'react';
+import leftArrow from './images/keyboard_arrow_left.svg'
+import rightArrow from './images/keyboard_arrow_right.svg'
 
 function Progress(props)
 {
@@ -9,7 +11,7 @@ function Progress(props)
             return '';
         }
         let width = (props.currentStep)/props.steps;
-        return width * 100 + '%'
+        return width * 100 + '%';
     }
     //Simple CSS progress bar
     let style = {
@@ -18,8 +20,16 @@ function Progress(props)
     return (
         <div className="progress-container">
             <div className="title">{props.currentStep} of {props.steps}</div>
-            <div className="progress-bar">
-                <div style={style} className="progress"></div>
+            <div className="progress-bar-container">
+                <button id="prev" onClick={props.prevClick}>
+                    <img src={leftArrow}></img>
+                </button>
+                <div class="progress-bar">
+                    <div style={style} className="progress"></div>
+                </div>
+                <button id="next" onClick={props.nextClick}>
+                    <img src={rightArrow}></img>                    
+                </button>
             </div>
         </div>
     );
@@ -35,25 +45,9 @@ class Game extends React.Component
                 {this.getCards()}
                 {this.getCardNavigation()}
                 {this.getProgress()}
-                {this.addPrev()}
-                {this.addNext()}
             </div>
         );
     };
-
-    addNext()
-    {
-        return (
-            <button onClick={this.props.next}>Next</button>
-        );
-    }
-
-    addPrev()
-    {
-        return (
-            <button onClick={this.props.prev}>Prev</button>
-        );
-    }
 
     getCards()
     {
@@ -70,6 +64,8 @@ class Game extends React.Component
         return <Progress
             currentStep={this.props.currentStep}
             steps={this.props.cards.length}
+            prevClick={this.props.prev}
+            nextClick={this.props.next}
         />;
     };
 }
