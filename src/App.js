@@ -56,14 +56,19 @@ class App extends React.Component
         {
             this.setState({
                 step: 'selection'
-            })
+            });
         }
+    }
+
+    getToggleText()
+    {
+        return (this.state.step === "game")? "selection" : "game";
     }
 
     addToggle()
     {
         return (
-            <button onClick={() => this.toggle()}>Change State</button>
+            <button onClick={() => this.toggle()}>Switch to {this.getToggleText()}</button>
         );
     }
 

@@ -24,7 +24,7 @@ function Progress(props)
                 <button id="prev" onClick={props.prevClick}>
                     <img src={leftArrow}></img>
                 </button>
-                <div class="progress-bar">
+                <div className="progress-bar">
                     <div style={style} className="progress"></div>
                 </div>
                 <button id="next" onClick={props.nextClick}>
