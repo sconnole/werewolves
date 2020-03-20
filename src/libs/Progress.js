@@ -22,13 +22,13 @@ function Progress(props)
             <div className="title">{props.currentStep} of {props.steps}</div>
             <div className="progress-bar-container">
                 <button id="prev" onClick={props.prevClick}>
-                    <img src={leftArrow}></img>
+                    <img alt="left-arrow" src={leftArrow}></img>
                 </button>
                 <div className="progress-bar">
                     <div style={style} className="progress"></div>
                 </div>
                 <button id="next" onClick={props.nextClick}>
-                    <img src={rightArrow}></img>                    
+                    <img alt="right-arrow" src={rightArrow}></img>                    
                 </button>
             </div>
         </div>
