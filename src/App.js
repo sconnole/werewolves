@@ -9,7 +9,7 @@ class App extends React.Component
     {
         super(props);
         this.state = {
-            step: 'game',
+            step: 'selection',
             currentStep: 0,
             cards: [0,0,0],
             history: []
