@@ -33,7 +33,8 @@ class App extends React.Component
                 text: 'Everyone go to sleep. I need Puck to wake up. Choose two people to be lovers. You can win with these two people. Go to sleep',
                 priority: 1,
                 oneTime: true,
-                viewed: false
+                viewed: false,
+                img: './images/puck.jpg'
             },
             {
                 character: 'Puck',

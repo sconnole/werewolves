@@ -1,0 +1,273 @@
+[
+  {
+    "quantity": 1,
+    "name": "Night Phase",
+    "required": 1,
+    "front_text": "It is nighttime, everyone except ghosts, close your eyes",
+    "wake_order": 0,
+    "priority": 1,
+    "pic": "{$p.always_include}"
+  },
+  {
+    "quantity": 1,
+    "name": "Ghost Whisperer (Ghosts Write)",
+    "required": "",
+    "front_text": "Ghosts you may now secretly write 1 word on your player envelop for the Ghost Whisperer to read.",
+    "wake_order": 1,
+    "priority": 1,
+    "pic": ""
+  },
+  {
+    "quantity": 1,
+    "name": "Doomsayer (Cards)",
+    "required": "",
+    "front_text": "*Draw 1 Doom card. All ghost players that have Doom cards give you one now and discard the other one. Use all your Doom Cards*",
+    "wake_order": 1,
+    "pic": ""
+  },
+  {
+    "quantity": 1,
+    "name": "Puck (Lovers)",
+    "required": "",
+    "front_text": "Puck, wake up. Choose two players to be lovers\"\n*Add the 'Lover' card to the chosen players.*\n\"Puck Sleep\"\n*After Puck closes their eyes, go around the circle and tap the two chosen players on the head.*\n\"If I tapped you on the head, wake up. You two are now lovers, if one of you dies, the other one must declare yourself as the other lover and you die as well. Instead of your normal win requirements, you can win with the other Lover. Lovers sleep.\"\n*Discard this card*",
+    "wake_order": 2,
+    "priority": 1,
+    "pic": "{$p.puck}"
+  },
+  {
+    "quantity": 1,
+    "name": "Puck (Rivals)",
+    "required": "",
+    "front_text": "Puck, wake up. Choose two players who are not Lovers to be Rivals.\"\n*Add the 'Rival' card to the chosen players.*\n\"Puck sleep\"\n*After Puck closes their eyes, go around the circle and tap the two players on the head.*\n\"If I tapped you on the head, wake up. You two are now Rivals, if the game ends, and your Rival is still alive, you lose. Rival's sleep\"\n*Discard this card*",
+    "wake_order": 2,
+    "priority": 2,
+    "pic": "{$p.puck}"
+  },
+  {
+    "quantity": 1,
+    "name": "Doomsayer (Acolyte)",
+    "required": "",
+    "front_text": "*Place the 'Acolyte' card in any player's envelope, then discard this card*",
+    "wake_order": 2,
+    "priority": 3,
+    "pic": "{$p.doomsayer}"
+  },
+  {
+    "quantity": 1,
+    "name": "Apprentice (First Night)",
+    "required": "",
+    "front_text": "Apprentice, wake up. Choose one player to be your Master. When your Master dies, you get to swap their character card with yours\"\n*Add the 'Master' card to the chosen player. Discard this card*\n\"Apprentice Sleep",
+    "wake_order": 2,
+    "pic": "{$p.apprentice}"
+  },
+  {
+    "quantity": 1,
+    "name": "Grim Reaper (First Night)",
+    "required": "",
+    "front_text": "Grim Reaper, wake up. Choose one player to be a 'Friend of Death'.\"\n*Give the chosen player the 'Friend of Death' card. Show the chosen player's character card to the Grim Reaper*\n\"That player must be the only player alive at the end of the game for you to win. Kill all other players. Grim Reaper sleep.\"\n*Discard this card*",
+    "wake_order": 2,
+    "pic": "{$p.grim_reaper}"
+  },
+  {
+    "quantity": 1,
+    "name": "The Emperor (First Night)",
+    "required": "",
+    "front_text": "Emperor, wake up. Choose one player to corrupt.\"\n*Show the chosen player's character card to the Emperor. Give the chosen player the 'Corrupt' card. Go around the circle and tap the chosen player on the head.*\n\"If I tapped you on the head, wake up. You are now corrupt and on The Emperor's team instead of your normal team. Everyone sleep.\"\n*Discard this card*",
+    "wake_order": 2,
+    "pic": "{$p.emperor}"
+  },
+  {
+    "quantity": 1,
+    "name": "Shadow Prince",
+    "required": "",
+    "front_text": "Shadow Prince, wake up. Choose two players to be your Shadows\"\n*Go around the circle and tap one of the chosen players on the head.*\n\"If I tapped you on the head, wake up. This is the Shadow Prince.\"\n*Point to Shadow Prince*\n\"If they die during the night, they may choose you to die in their place. Everyone except Shadow Prince sleep\"\n*When everyone has their eyes closed, Go around the circle and tap the other chosen player on the head.*\n\"\"If I tapped you on the head, wake up. This is the Shadow Prince.\"\n*Point to Shadow Prince* \n\"If they die at night, they may choose you to die in their place. Everyone sleep.\"\n*Discard this card*",
+    "wake_order": 2,
+    "pic": "{$p.shadow_prince}"
+  },
+  {
+    "quantity": 1,
+    "name": "Ghost King",
+    "required": "",
+    "front_text": "*If there are no dead players, skip this card*\n\"Ghost King, wake up. All ghost players point to any live player.\"\n*After the ghosts have finished pointing.*\n\"Ghost King, choose 1 player that ghosts are pointing at.\"\n*Give a 'Dead' card to the chosen player*",
+    "wake_order": 3,
+    "priority": 1,
+    "pic": "{$p.ghost_king}"
+  },
+  {
+    "quantity": 1,
+    "name": "Amnesiac",
+    "required": "",
+    "front_text": "*If there are no dead players, skip this card*\n\"Amnesiac, wake up. Choose a dead player\"\n*Take the dead player's card and show it to the Amnesiac. Swap the two cards. The player now assumes the role of their new card. If there are any discarded Narrator cards matching the Amnesiac's new role card, add them back to the Narrator deck. Discard this card*",
+    "wake_order": 3,
+    "pic": "{$p.amnesiac}"
+  },
+  {
+    "quantity": 1,
+    "name": "Apprentice",
+    "required": "",
+    "front_text": "*If the 'Master' card is face up, continue, otherwise move to the next card*\n\"Apprentice wake up and see your new role\"\n*Take the Apprentice card and swap it with the Master's card. Show the Master's card to the Apprentice. If there are any discarded Narrator cards matching the Master's role card, add them back to the Narrator deck. Discard this card*",
+    "wake_order": 3,
+    "pic": "{$p.apprentice}"
+  },
+  {
+    "quantity": 1,
+    "name": "The Emperor (Corrupt)",
+    "required": "",
+    "front_text": "*If the Emperor's card is face up, discard this card. Otherwise continue*\n*If there is a face up 'Corrupt' card, continue. Otherwise, skip this card.*\n\"Emperor, wake up. Choose a player to corrupt.\"\n*Show the Emperor the chosen player's character card. Give the chosen player the 'Corrupt' card. Go around the circle and tap the chosen player on the head.*\n\"If I tapped you on the head, wake up. You are now on the Emperor's team instead of your previous team. Everyone sleep\"\n*Go around the circle and tap a player of your choice on the head*\n\"If I tapped you on the head, wake up.\"\n*After they wake up, point to the Emperor*\n\"This is the Emperor. Everybody sleep.",
+    "wake_order": 3,
+    "pic": "{$p.emperor}"
+  },
+  {
+    "quantity": 1,
+    "name": "Puppet Master",
+    "required": "",
+    "front_text": "*If there is a face up 'Puppet' card, continue. Otherwise, skip this card.*\n\"Puppet Master, wake up. Choose any other player to be your Puppet.\"\n*Give the 'Puppet' card to the chosen player. Show the Puppet Master the chosen player's character card. Go around the circle and tap the selected player on the head.*\n\"If I tapped you on the head, wake up and see the Puppet Master. Until the Puppet Master dies, you ignore any other win condition. You can now only win with the Puppet Master. You cannot place any vote card greater than 0 on the Puppet Master, and you cannot target the Puppet Master with any killing power. Everybody sleep.",
+    "wake_order": 3,
+    "pic": "{$p.puppet_master}"
+  },
+  {
+    "quantity": 1,
+    "name": "Grim Reaper",
+    "required": "",
+    "front_text": "Grim Reaper, wake up. Choose a player to give the mark of death to.\"\n*If any player has a Mark of Death, give them a 'Dead' card. Give the Mark of Death card to the chosen player face up*\n\"Grim Reaper sleep",
+    "wake_order": 3,
+    "pic": "{$p.grim_reaper}"
+  },
+  {
+    "quantity": 1,
+    "name": "Werewolves",
+    "required": "",
+    "front_text": "Werewolves, wake up. Choose a player to kill. The player with the most votes will be killed.\"\n*Give a 'Dead' card to that player.*\n\"Werewolves sleep",
+    "wake_order": 4,
+    "priority": 1,
+    "pic": "{$p.werewolf}"
+  },
+  {
+    "quantity": 1,
+    "name": "Lone Wolf",
+    "required": "",
+    "front_text": "Lone Wolf, wake up. Choose a player to kill.\"\n*Give a 'Dead' card to that player*\n\"Lone Wolf sleep",
+    "wake_order": 4,
+    "pic": "{$p.lone_wolf}"
+  },
+  {
+    "quantity": 1,
+    "name": "Vampire",
+    "required": "",
+    "front_text": "Vampire, wake up. Choose a player to bite.\"\n*Give a 'Bitten' card to that player*\n\"Vampire sleep",
+    "wake_order": 4,
+    "pic": "{$p.vampire}"
+  },
+  {
+    "quantity": 1,
+    "name": "Seer",
+    "required": "",
+    "front_text": "",
+    "wake_order": 5,
+    "pic": "{$p.seer}"
+  },
+  {
+    "quantity": 1,
+    "name": "Oracle",
+    "required": "",
+    "front_text": "",
+    "wake_order": 5,
+    "pic": "{$p.oracle}"
+  },
+  {
+    "quantity": 1,
+    "name": "Scientist",
+    "required": "",
+    "front_text": "",
+    "wake_order": 5,
+    "pic": "{$p.scientist}"
+  },
+  {
+    "quantity": 1,
+    "name": "Ghost Whisperer",
+    "required": "",
+    "front_text": "Ghost Whisperer, wake up. Choose a dead player and view their character card.\"\n*Show the Ghost Whisperer the dead player's character card*\n\"Ghosts, you may now display your secret words to the Ghost Whisperer\"\n*After Ghosts reveal\"\n\"Ghost Whisperer, sleep",
+    "wake_order": 5,
+    "pic": "{$p.ghost_whisperer}"
+  },
+  {
+    "quantity": 1,
+    "name": "Gossip",
+    "required": "",
+    "front_text": "Gossip, wake up. Choose any two players including yourself. Then sleep\"\n*Go around the circle and tap the two chosen players on the head.*\n\"If I tapped you on the head, wake up.\"\n*Show the chosen players the other player's character card*",
+    "wake_order": 5,
+    "pic": "{$p.gossip}"
+  },
+  {
+    "quantity": 1,
+    "name": "Empath",
+    "required": "",
+    "front_text": "",
+    "wake_order": 5,
+    "pic": "{$p.empath}"
+  },
+  {
+    "quantity": 1,
+    "name": "Psychic",
+    "required": "",
+    "front_text": "",
+    "wake_order": 5,
+    "pic": "{$p.psychic}"
+  },
+  {
+    "quantity": 1,
+    "name": "Emperor",
+    "required": "",
+    "front_text": "*If The Emperor has revealed his card, discard this card, otherwise continue.*\n\"Emperor, wake up. Choose a player to view their character card.\"\n*Show the chosen player's character card to The Emperor*",
+    "wake_order": 5,
+    "pic": "{$p.emperor}"
+  },
+  {
+    "quantity": 1,
+    "name": "Jailer",
+    "required": "",
+    "front_text": "Jailer wake up. Choose any player including yourself to put in jail.\"\n*Announce to everyone that the chosen player is now in jail.*\n\"While in jail, you cannot be lynched and cannot vote during the next day",
+    "wake_order": 5,
+    "pic": "{$p.jailer}"
+  },
+  {
+    "quantity": 1,
+    "name": "Gun Smith",
+    "required": "",
+    "front_text": "*If there is a 'Gun' card currently in play, skip this card*\n\"Gun Smith, wake up. Choose a player to recieve a gun.\"\n*Give the chosen player the 'Gun' card.*",
+    "wake_order": 5,
+    "pic": "{$p.gun_smith}"
+  },
+  {
+    "quantity": 1,
+    "name": "Body Guard",
+    "required": "",
+    "front_text": "Bodyguard, wake up. Choose a player other than yourself to protect.\"\n*Reveal all cards in that player's envelope to the bodyguard and remove 1 'Dead' card*",
+    "wake_order": 6,
+    "pic": "{$p.body_guard}"
+  },
+  {
+    "quantity": 1,
+    "name": "Grim Reaper (Death Check)",
+    "required": "",
+    "front_text": "*If 'Friend of Death' card is revealed discard this card. Otherwise, remove any 'Dead' card(s) from Grim Reaper*",
+    "wake_order": 6,
+    "pic": "{$p.grim_reaper}"
+  },
+  {
+    "quantity": 1,
+    "name": "Voting Cards",
+    "required": 1,
+    "front_text": "Return all special voting cards to the appropriate players",
+    "wake_order": 7,
+    "pic": "{$p.always_include}"
+  },
+  {
+    "quantity": 1,
+    "name": "Day Phase",
+    "required": 1,
+    "front_text": "Everyone wake up and look at your envelope\"\n*Players can open their eyes now. Each player takes their envelope and looks at their night status cards\n Then voting commences*",
+    "wake_order": 7,
+    "pic": "{$p.always_include}"
+  }
+]
