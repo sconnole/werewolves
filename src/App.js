@@ -27,40 +27,7 @@ class App extends React.Component
 
     setupCards()
     {
-       return [
-            {
-                character: 'Puck',
-                text: 'Everyone go to sleep. I need Puck to wake up. Choose two people to be lovers. You can win with these two people. Go to sleep',
-                priority: 1,
-                oneTime: true,
-                viewed: false,
-                img: './images/puck.jpg'
-            },
-            {
-                character: 'Puck',
-                text: 'If I tap you on the head, you are lovers. If one of you dies, the other is so heart broken they will commit suicide. You can win together with Puck.',
-                priority: 2,
-                oneTime: true,
-                viewed: false
-            },
-            {
-                character: 'Puck',
-                text: 'Everyone go to sleep. I need Puck to wake up. Choose two people to be rivals. You can win if you and one of the rivals are alive at the end of the game. Go to sleep',
-                priority: 3,
-                oneTime: true,
-                viewed: false
-            },
-        ];
-    };
-
-    getStep()
-    {
-        if(this.state.step === 'selection')
-        {
-            return 
-        }
-
-        return 
+        return require('./media/characters.json');;            
     };
 
     toggle()
