@@ -6,6 +6,12 @@ class Game extends React.Component
 {
     render()
     {
+        /**
+         * Night count and toggle between night and day
+         * perhaps move steps to game
+         * During day phase, lighten the background
+         * Add a finish button which celebrates, logs history, and takes them back to selection
+         */
         return (
             <div className="game">
                 Game

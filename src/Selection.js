@@ -4,6 +4,10 @@ class Selection extends React.Component
 {
     render()
     {
+        /**
+         * Select from characters
+         * updates active cards in app
+         */
         return (
             <div className="selection">
                 Selection
