@@ -6,7 +6,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    NavLink
   } from "react-router-dom";
 
 class App extends React.Component 
@@ -48,10 +48,10 @@ class App extends React.Component
               <nav>
                 <ul>
                   <li>
-                    <Link to="/">Setup</Link>
+                    <NavLink activeClassName="selected" to="/setup">Setup</NavLink>
                   </li>
                   <li>
-                    <Link to="/game">Play</Link>
+                    <NavLink activeClassName="selected" to="/game">Play</NavLink>
                   </li>
                 </ul>
               </nav>
@@ -64,7 +64,7 @@ class App extends React.Component
                         cards={this.state.cards}
                     />
                 </Route>
-                <Route path="/">
+                <Route path="/setup">
                     <Selection
                         cards={this.state.cards}
                         history={this.state.history}

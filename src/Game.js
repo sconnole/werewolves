@@ -41,7 +41,6 @@ class Game extends React.Component
          */
         return (
             <div className="game">
-                Game
                 {this.getActiveCard()}
                 {this.getProgress()}
             </div>

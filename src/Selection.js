@@ -18,7 +18,6 @@ class Selection extends React.Component
          */
         return (
             <div className="selection">
-                Selection
                 {this.getPriorGames()}
                 {this.getStarters()}
                 {this.getCharacters()}
