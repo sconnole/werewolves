@@ -16,13 +16,11 @@ class App extends React.Component
         super(props);
         this.state = {
             step: 'selection',
-            currentStep: 1,
             cards: this.setupCards(),
             history: []
         };
 
-        this.next = this.next.bind(this);
-        this.prev = this.prev.bind(this);
+        this.updateCards = this.updateCards.bind(this);
     };
 
     setupCards()
@@ -30,53 +28,16 @@ class App extends React.Component
         return require('./media/characters.json');;            
     };
 
-    toggle()
+    updateCards(index)
     {
-        if(this.state.step === 'selection')
-        {
-            this.setState({
-                step: 'game'
-            });
-        }
-        else
-        {
-            this.setState({
-                step: 'selection'
-            });
-        }
+        console.log(index)
+        let cards = this.state.cards;
+        cards[index].status = (cards[index].status === 'active')? '': 'active';
+        
+        this.setState({
+            cards:cards
+        });
     }
-
-    getToggleText()
-    {
-        return (this.state.step === "game")? "selection" : "game";
-    }
-
-    addToggle()
-    {
-        return (
-            <button onClick={() => this.toggle()}>Switch to {this.getToggleText()}</button>
-        );
-    }
-
-    next()
-    {
-        if(this.state.cards.length > this.state.currentStep)
-        {
-            this.setState({
-                currentStep: this.state.currentStep + 1
-            });
-        }
-    };
-
-    prev()
-    {
-        if(this.state.currentStep > 1)
-        {
-            this.setState({
-                currentStep: this.state.currentStep - 1
-            });
-        }
-    };
 
     render()
     {
@@ -101,14 +62,13 @@ class App extends React.Component
                         parent={this}
                         currentStep={this.state.currentStep}
                         cards={this.state.cards}
-                        next={this.next}
-                        prev={this.prev}
                     />
                 </Route>
                 <Route path="/">
                     <Selection
                         cards={this.state.cards}
                         history={this.state.history}
+                        updateCards={this.updateCards}
                     />
                 </Route>
               </Switch>
