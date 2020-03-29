@@ -29,7 +29,7 @@
     "quantity": 1,
     "name": "Puck (Lovers)",
     "required": "",
-    "front_text": "Puck, wake up. Choose two players to be lovers\"\n*Add the 'Lover' card to the chosen players.*\n\"Puck Sleep\"\n*After Puck closes their eyes, go around the circle and tap the two chosen players on the head.*\n\"If I tapped you on the head, wake up. You two are now lovers, if one of you dies, the other one must declare yourself as the other lover and you die as well. Instead of your normal win requirements, you can win with the other Lover. Lovers sleep.\"\n*Discard this card*",
+    "front_text": "Puck, wake up. Choose two players to be lovers\n*Add the 'Lover' card to the chosen players.*\n\"Puck Sleep\"\n*After Puck closes their eyes, go around the circle and tap the two chosen players on the head.*\n\"If I tapped you on the head, wake up. You two are now lovers, if one of you dies, the other one must declare yourself as the other lover and you die as well. Instead of your normal win requirements, you can win with the other Lover. Lovers sleep.\"\n*Discard this card*",
     "wake_order": 2,
     "priority": 1,
     "pic": "{$p.puck}"
@@ -38,7 +38,7 @@
     "quantity": 1,
     "name": "Puck (Rivals)",
     "required": "",
-    "front_text": "Puck, wake up. Choose two players who are not Lovers to be Rivals.\"\n*Add the 'Rival' card to the chosen players.*\n\"Puck sleep\"\n*After Puck closes their eyes, go around the circle and tap the two players on the head.*\n\"If I tapped you on the head, wake up. You two are now Rivals, if the game ends, and your Rival is still alive, you lose. Rival's sleep\"\n*Discard this card*",
+    "front_text": "Puck, wake up. Choose two players who are not Lovers to be Rivals.\n*Add the 'Rival' card to the chosen players.*\n\"Puck sleep\"\n*After Puck closes their eyes, go around the circle and tap the two players on the head.*\n\"If I tapped you on the head, wake up. You two are now Rivals, if the game ends, and your Rival is still alive, you lose. Rival's sleep\"\n*Discard this card*",
     "wake_order": 2,
     "priority": 2,
     "pic": "{$p.puck}"
@@ -266,7 +266,7 @@
     "quantity": 1,
     "name": "Day Phase",
     "required": 1,
-    "front_text": "Everyone wake up and look at your envelope\"\n*Players can open their eyes now. Each player takes their envelope and looks at their night status cards\n Then voting commences*",
+    "front_text": "Everyone wake up and look at your envelope\n*Players can open their eyes now. Each player takes their envelope and looks at their night status cards\n Then voting commences*",
     "wake_order": 7,
     "pic": "{$p.always_include}"
   }

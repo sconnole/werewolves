@@ -25,6 +25,11 @@ class Game extends React.Component
         for(let i = 0; i < length; i++)
         {
             let card = cards[i];
+            if(card.discarded === true)
+            {
+                continue;
+            }
+            
             if(card.status === "active" || card.required)
             {
                 activeCards.push(card);
@@ -57,13 +62,17 @@ class Game extends React.Component
                 currentStep: state.currentStep + 1
             });
         }
-        else 
-        {
-            //Move to the next day
-        }
 
+        this.checkToDiscard();
         this.checkIsDay();
     };
+
+    //Mark cards as discarded.
+    //When you move to the next day, delete any 'used' cards from the 'activeCards' index
+    checkToDiscard()
+    {
+
+    }
 
     prev()
     {

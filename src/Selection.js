@@ -3,19 +3,8 @@ import Character from './libs/Character'
 
 class Selection extends React.Component 
 {
-    constructor(props)
-    {
-        super(props);
-
-        this.activateCard = this.activateCard.bind(this);
-    }
-
     render()
     {
-        /**
-         * Select from characters
-         * updates active cards in app
-         */
         return (
             <div className="selection">
                 {this.getPriorGames()}
@@ -37,8 +26,6 @@ class Selection extends React.Component
 
     getCharacters()
     {
-        //To do
-        //Get Character List
         let cards = this.props.cards;
         let characters = [];
         for(let i = 0, len = cards.length; i < len; i++)
@@ -60,7 +47,8 @@ class Selection extends React.Component
 
     getCharacter(card, index)
     {
-        let id = "character-"+index;
+        this.activateCard = this.activateCard.bind(this);
+        let id = "character-" + index;
         return <Character
             key={id}
             index={index}
