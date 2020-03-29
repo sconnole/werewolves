@@ -10,7 +10,8 @@ class Game extends React.Component
         this.state = {
             currentStep: 1,
             activeCards: this.parseCards(props.cards),
-            phase: 'night'
+            phase: 'night',
+            dayNum: 1
         };
 
         this.next = this.next.bind(this);
@@ -49,12 +50,19 @@ class Game extends React.Component
     
     next()
     {
-        if(this.state.activeCards.length > this.state.currentStep)
+        let state = this.state;
+        if(state.activeCards.length > state.currentStep)
         {
             this.setState({
-                currentStep: this.state.currentStep + 1
+                currentStep: state.currentStep + 1
             });
         }
+        else 
+        {
+            //Move to the next day
+        }
+
+        this.checkIsDay();
     };
 
     prev()
@@ -64,6 +72,20 @@ class Game extends React.Component
             this.setState({
                 currentStep: this.state.currentStep - 1
             });
+            document.getElementById('root').classList = '';
+        }
+    };
+
+    checkIsDay()
+    {
+        let ele = document.getElementById('root');
+        if(this.state.activeCards.length - 1 === this.state.currentStep)
+        {
+            ele.classList.add('day-time'); 
+        }
+        else
+        {
+            ele.classList = '';
         }
     };
 

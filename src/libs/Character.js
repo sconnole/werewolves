@@ -10,19 +10,27 @@ function Character(props)
         updateText(str);
     }
 
+    function getClassName()
+    {
+        let className = "character"
+        if(props.status === 'active')
+        {
+            className += " active";
+        }
+        return className;
+    }
+
     return (
-        <div className="character">
+        <div className={getClassName()}
+            onClick={() => {
+                props.onClick(props.index)
+                handleUpdateText()
+            }}
+        >
             <div className="title">{props.name}</div>
             <div className="card-container">
                 {props.text}
             </div>
-            <button 
-                onClick={() => {
-                    props.onClick(props.index)
-                    handleUpdateText()
-                    }}>
-                {text}
-            </button>
         </div>
     );
 };

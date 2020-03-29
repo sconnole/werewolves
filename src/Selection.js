@@ -66,6 +66,7 @@ class Selection extends React.Component
             index={index}
             name={card.name}
             text={card.text}
+            status={card.status}
             onClick={this.activateCard}
         />;
     };

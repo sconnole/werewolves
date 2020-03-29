@@ -15,7 +15,7 @@ function Card(props)
             <div className="card-container">
                 {renderHTML(props.text)}
             </div>
-            <img alt={props.name} src="/"></img>
+            {/* <img alt={props.name} src="/"></img> */}
         </div>
     );
 };

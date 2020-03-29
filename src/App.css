@@ -1,12 +1,16 @@
 #root {
-    background-color: #282c34;
+    background-color: #1c1f24 ;
     min-height: 100vh;
-    color: #fff;
+    color: #f1f2f4;
+    transition: background-color .5s;
+}
+#root.day-time {
+    color: #1c1f24 ;
+    background-color: #f1f2f4;
 }
 
 .App {
     margin: auto;
-    padding-bottom: 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,6 +20,7 @@
 }
 .App > .selection {
     flex-wrap: wrap;
+    padding-bottom: 20px;
 }
 .App > .game {
     flex-direction: column;
@@ -32,7 +37,7 @@
     text-align: center;
     font-size: 125%;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 .progress-container {
     margin-top: auto;
@@ -40,6 +45,7 @@
 }
 .progress-bar-container {
     display:flex;
+    margin-bottom: 16px;
 }
 .progress-bar {
     margin: 8px;
@@ -56,17 +62,24 @@
     transition: width .2s;
     background-color: #3485b5;
 }
+.progress button img {
+    vertical-align: middle;
+}
 .character {
     padding: 12px;
     text-align: center;
     border: 1px solid #000;
     margin: 8px;
+    cursor: pointer;
     flex: 1 1 33.33%;
+}
+.character.active {
+    border-color: #a0a8b6;
 }
 nav {
     display:flex;
     flex-direction: row;
-    background: #666;
+    background: #717c92;
 }
 nav ul {
     display:flex;
@@ -77,13 +90,13 @@ nav ul {
 nav ul li a {
     padding: 16px;
     color: #fff;
-    background-color: #666;
+    background-color: #717c92;
     text-decoration: none;
     cursor: pointer;
 }
 nav ul li a:hover {
-    background: #555;
+    background: #a0a8b6 ;
 }
 nav ul li a.selected {
-    background-color: #3485b5;
+    background-color: #4c5463 ;
 }

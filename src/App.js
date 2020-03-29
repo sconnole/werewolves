@@ -30,7 +30,6 @@ class App extends React.Component
 
     updateCards(index)
     {
-        console.log(index)
         let cards = this.state.cards;
         cards[index].status = (cards[index].status === 'active')? '': 'active';
         
