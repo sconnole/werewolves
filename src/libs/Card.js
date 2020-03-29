@@ -25,7 +25,6 @@ function Card(props)
 
             for(var i = 0; i < matches.length; i++)
             {
-                console.log(matches[i]);
                 str += matches[i];
                 if(isEven(i))
                 {
