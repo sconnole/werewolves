@@ -8,7 +8,38 @@
     color: #1c1f24 ;
     background-color: #f1f2f4;
 }
-
+.closed {
+    height: 0;
+    overflow: hidden;
+}
+.collapse-container {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.menu.closed {
+    height: initial;
+    overflow: initial;
+}
+.menu span {
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    margin: 6px 0;
+    display: block;
+    transition-duration: .2s;
+}
+.menu.closed span:nth-child(2) {
+    opacity: 0;
+}
+.menu.closed span:first-child {
+    -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.menu.closed span:last-child {
+    -webkit-transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(45deg) translate(-5px, -6px);
+}
 .App {
     margin: auto;
     min-height: 100vh;
@@ -28,6 +59,7 @@
     min-width:90%;
     max-width: 90%;
     margin: auto;
+    position: relative;
 }
 .card {
     display: flex;

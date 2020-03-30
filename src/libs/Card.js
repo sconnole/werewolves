@@ -7,11 +7,14 @@ function Card(props)
         return text.replace(/\n/g, '<br><br>')
     }
 
-    function isEven(value) {
-        if (value%2 == 0)
+    function isEven(value) 
+    {
+        if (value % 2 == 0)
+        {
             return true;
-        else
-            return false;
+        }
+        
+        return false;
     }
 
     const openEm = "<em>";

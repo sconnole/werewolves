@@ -1,6 +1,8 @@
 import React from 'react';
 import Progress from './libs/Progress'
 import Card from './libs/Card'
+import Collapse from './libs/Collapse'
+import DiscardPile from './libs/DiscardPile'
 
 class Game extends React.Component 
 {
@@ -48,6 +50,7 @@ class Game extends React.Component
         return (
             <div className="game">
                 {this.getActiveCard()}
+                {this.getDiscard()}
                 {this.getProgress()}
             </div>
         );
@@ -112,6 +115,13 @@ class Game extends React.Component
         }
         return " No Cards Selected";
     };
+
+    getDiscard()
+    {
+        return <Collapse
+            content={<DiscardPile/>}
+        />
+    }
 
     getProgress()
     {
