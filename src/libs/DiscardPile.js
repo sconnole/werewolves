@@ -4,7 +4,7 @@ function DiscardPile(props)
 {
     return (
         <div className="discard-container">
-            <div className="">Discard</div>
+            <div className="">All Discarded Cards: </div>
         </div>
     );
 };

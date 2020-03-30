@@ -13,8 +13,19 @@ function Collapse(props)
         return className;
     };
 
+    function getContainerClass(open)
+    {
+        let className = "collapse-container";
+        if(open === true)
+        {
+            className += " open";
+        }
+        return className;
+    }
+
     return (
-        <div className="collapse-container">
+        <div className={getContainerClass(open)}>
+            <span className={getClassName("menu-text", !open)}>{props.menuText}</span>
             <div 
                 onClick={() => {
                     toggle((open===true)? false : true)

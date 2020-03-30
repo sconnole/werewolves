@@ -120,6 +120,7 @@ class Game extends React.Component
     {
         return <Collapse
             content={<DiscardPile/>}
+            menuText="Discard"
         />
     }
 
