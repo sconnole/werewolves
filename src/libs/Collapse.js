@@ -18,7 +18,7 @@ function Collapse(props)
         let className = "collapse-container";
         if(open === true)
         {
-            className += " open";
+            className += " open fadeIn";
         }
         return className;
     }
