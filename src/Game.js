@@ -12,12 +12,14 @@ class Game extends React.Component
         this.state = {
             currentStep: 1,
             activeCards: this.parseCards(props.cards),
+            discardedCards: [],
             phase: 'night',
             dayNum: 1
         };
 
         this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
+        this.discard = this.discard.bind(this);
     };
 
     parseCards(cards)
@@ -105,21 +107,32 @@ class Game extends React.Component
     {
         const index = this.state.currentStep - 1;
         const card = this.state.activeCards[index];
+        const handleClick = (card.required !== 1)? this.discard : null;
         if(card)
         {
             return <Card
+                index={index}
                 wake_order={card.wake_order}
                 name={card.name}
                 text={card.front_text}
+                onClick={handleClick}
             />;
         }
         return " No Cards Selected";
     };
 
+    discard(index)
+    {
+        console.log('Discard');
+        console.log(index)
+    };
+
     getDiscard()
     {
         return <Collapse
-            content={<DiscardPile/>}
+            content={<DiscardPile
+                cards={this.state.discardedCards}
+            />}
             menuText="Discard"
         />
     }

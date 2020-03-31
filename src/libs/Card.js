@@ -51,12 +51,25 @@ function Card(props)
         return {__html: text};
     };
 
+    function getButton()
+    {
+        if(props.onClick)
+        {
+            return (
+                <div>
+                    <button onClick={()=>props.onClick(props.index)}>Discard</button>
+                </div>
+            );
+        }
+    }
+
     return (
         <div className="card">
             <div className="title">{props.name}</div>
             <div className="card-container"
                 dangerouslySetInnerHTML={renderHTML()}
             />
+            {getButton()}
         </div>
     );
 };

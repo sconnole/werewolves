@@ -28,8 +28,7 @@ function Collapse(props)
             <span className={getClassName("menu-text", !open)}>{props.menuText}</span>
             <div 
                 onClick={() => {
-                    toggle((open===true)? false : true)
-                    console.log(open);
+                    toggle((open===true)? false : true);
                 }}
                 className={getClassName("menu", !open)}>
                 <span></span>
