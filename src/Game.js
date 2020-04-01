@@ -62,7 +62,7 @@ class Game extends React.Component
     navNextDay()
     {
         let cards = this.state.activeCards;
-        cards = this.state.activeCards.filter(card => this.discardCard(card));
+        cards = this.state.activeCards.filter((card, index) => this.discardCard(card, index));
         this.setState({
             currentStep: 1,
             activeCards: cards,
@@ -72,10 +72,11 @@ class Game extends React.Component
         this.setNight();
     };
 
-    discardCard(card)
+    discardCard(card, index)
     {   
         if(card.discard === true)
         {
+            card.orginalIndex = index;
             let cards = this.state.discardedCards;
             cards.push(card);
             this.setState({
@@ -159,12 +160,19 @@ class Game extends React.Component
 
     getDiscard()
     {
+        this.restoreCard = this.restoreCard.bind(this);
         return <Collapse
             content={<DiscardPile
                 cards={this.state.discardedCards}
+                restoreCard={this.restoreCard}
             />}
             menuText="Discard"
         />
+    }
+
+    restoreCard(card)
+    {
+        console.log(card);
     }
 
     getProgress()

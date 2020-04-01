@@ -45,10 +45,13 @@ function Card(props)
 
     function renderHTML()
     {
-        let text = convertNewLines(props.text);
-        text = convertToEm(text);
-
-        return {__html: text};
+        if(props.text)
+        {
+            let text = convertNewLines(props.text);
+            text = convertToEm(text);
+            
+            return {__html: text};
+        }
     };
 
     function getButton()
