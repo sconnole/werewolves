@@ -52,10 +52,38 @@ class Game extends React.Component
         return (
             <div className="game">
                 {this.getActiveCard()}
+                <button onClick={()=> this.navNextDay()} className="next-day">Next Day</button>
                 {this.getDiscard()}
                 {this.getProgress()}
             </div>
         );
+    };
+
+    navNextDay()
+    {
+        let cards = this.state.activeCards;
+        cards = this.state.activeCards.filter(card => this.discardCard(card));
+        this.setState({
+            currentStep: 1,
+            activeCards: cards,
+            dayNum: this.state.dayNum + 1
+        });
+
+        this.setNight();
+    };
+
+    discardCard(card)
+    {   
+        if(card.discard === true)
+        {
+            let cards = this.state.discardedCards;
+            cards.push(card);
+            this.setState({
+                discardedCards: cards
+            });
+        }
+
+        return card.discard !== true;
     };
     
     next()
@@ -67,17 +95,24 @@ class Game extends React.Component
                 currentStep: state.currentStep + 1
             });
         }
-
-        this.checkToDiscard();
+        
+        this.checkToDiscard();        
         this.checkIsDay();
     };
 
-    //Mark cards as discarded.
-    //When you move to the next day, delete any 'used' cards from the 'activeCards' index
     checkToDiscard()
     {
 
-    }
+    };
+    
+    checkIsDay()
+    {
+        let ele = document.getElementById('root');
+        if(this.state.activeCards.length-1 === this.state.currentStep)
+        {
+            ele.classList.add('day-time'); 
+        }
+    };
 
     prev()
     {
@@ -86,21 +121,13 @@ class Game extends React.Component
             this.setState({
                 currentStep: this.state.currentStep - 1
             });
-            document.getElementById('root').classList = '';
+            this.setNight();
         }
     };
 
-    checkIsDay()
-    {
-        let ele = document.getElementById('root');
-        if(this.state.activeCards.length - 1 === this.state.currentStep)
-        {
-            ele.classList.add('day-time'); 
-        }
-        else
-        {
-            ele.classList = '';
-        }
+    setNight()
+    {   
+        document.getElementById('root').classList = '';
     };
 
     getActiveCard()
@@ -123,8 +150,11 @@ class Game extends React.Component
 
     discard(index)
     {
-        console.log('Discard');
-        console.log(index)
+        let cards = this.state.activeCards;
+        cards[index].discard = true;
+        this.setState({
+            activeCards: cards
+        });
     };
 
     getDiscard()
