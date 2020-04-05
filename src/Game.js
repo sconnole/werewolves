@@ -4,6 +4,9 @@ import Card from './libs/Card'
 import Collapse from './libs/Collapse'
 import DiscardPile from './libs/DiscardPile'
 
+/**
+ * 
+ */
 class Game extends React.Component 
 {
     constructor(props)
@@ -46,13 +49,13 @@ class Game extends React.Component
     {
         /**
          * Night count and toggle between night and day
-         * During day phase, lighten the background
          * Add a finish button which celebrates, logs history, and takes them back to selection
          */
         return (
             <div className="game">
+                <span className="counter">Round {this.state.dayNum}</span>
                 {this.getActiveCard()}
-                <button onClick={()=> this.navNextDay()} className="next-day">Next Day</button>
+                <button onClick={() => this.navNextDay()} className="next-day">Next Day</button>
                 {this.getDiscard()}
                 {this.getProgress()}
             </div>
@@ -103,7 +106,7 @@ class Game extends React.Component
 
     checkToDiscard()
     {
-
+        // TODO: Some cards automatically discard, this function should discard those cards
     };
     
     checkIsDay()
@@ -135,7 +138,14 @@ class Game extends React.Component
     {
         const index = this.state.currentStep - 1;
         const card = this.state.activeCards[index];
-        const handleClick = (card.required !== 1)? this.discard : null;
+        let handleClick = null;
+
+        // Add a flag for discarded cards
+        if(card.discard !== true)
+        {
+            handleClick = (card.required !== 1)? this.discard : null;
+        }
+
         if(card)
         {
             return <Card
@@ -156,11 +166,18 @@ class Game extends React.Component
         this.setState({
             activeCards: cards
         });
+        this.next();
     };
 
     getDiscard()
     {
         this.restoreCard = this.restoreCard.bind(this);
+
+        if(this.state.discardedCards.length === 0)
+        {
+            return;
+        }
+
         return <Collapse
             content={<DiscardPile
                 cards={this.state.discardedCards}

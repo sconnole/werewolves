@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-function Character(props)
+function CardSelection(props)
 {
     function getClassName()
     {
-        let className = "character"
+        let className = "card-selection"
         if(props.status === 'active')
         {
             className += " active";
@@ -22,4 +22,4 @@ function Character(props)
     );
 };
 
-export default Character;
+export default CardSelection;

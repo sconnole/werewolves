@@ -9,13 +9,18 @@ import {
     NavLink
   } from "react-router-dom";
 
+
+/**
+ * This app has two main sections. Card selection (selection) and Iteration through those cards (Game)
+ * The cards need to be read in from the JSON file. Some cards are required and will always be added. 
+ * This also sets up the router. 
+ */
 class App extends React.Component 
 {
     constructor(props)
     {
         super(props);
         this.state = {
-            step: 'selection',
             cards: this.setupCards(),
             history: []
         };
@@ -25,7 +30,7 @@ class App extends React.Component
 
     setupCards()
     {
-        return require('./media/characters.json');;            
+        return require('./media/narrator-cards.json');;            
     };
 
     updateCards(index)

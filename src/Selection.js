@@ -1,6 +1,10 @@
 import React from 'react';
-import Character from './libs/Character'
+import CardSelection from './libs/CardSelection';
 
+/**
+ * Displays a list of cards. The cards can be selected and will be added to the game module. 
+ * 
+ */
 class Selection extends React.Component 
 {
     render()
@@ -17,11 +21,13 @@ class Selection extends React.Component
     getPriorGames()
     {
         //To do
+        // Would like to allow prior selections to be stored locally
     };
 
     getStarters()
     {
         //To do
+        // There will be a group of common card selections that will get started quickly. 
     };
 
     getCharacters()
@@ -49,7 +55,7 @@ class Selection extends React.Component
     {
         this.activateCard = this.activateCard.bind(this);
         let id = "character-" + index;
-        return <Character
+        return <CardSelection
             key={id}
             index={index}
             name={card.name}

@@ -9,7 +9,7 @@ function Card(props)
 
     function isEven(value) 
     {
-        if (value % 2 == 0)
+        if (value % 2 === 0)
         {
             return true;
         }
