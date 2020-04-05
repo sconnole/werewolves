@@ -3,7 +3,7 @@ import CardSelection from './libs/CardSelection';
 
 /**
  * Displays a list of cards. The cards can be selected and will be added to the game module. 
- * 
+ * See to do in functions for more
  */
 class Selection extends React.Component 
 {

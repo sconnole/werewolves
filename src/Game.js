@@ -5,7 +5,10 @@ import Collapse from './libs/Collapse'
 import DiscardPile from './libs/DiscardPile'
 
 /**
+ * Alright, this one is a little complicated. 
  * 
+ * Tracks current steps, current cards, the phase, and the day
+ * See individual functions for more comments
  */
 class Game extends React.Component 
 {
@@ -25,6 +28,7 @@ class Game extends React.Component
         this.discard = this.discard.bind(this);
     };
 
+    //Loops through all of the cards to make sure only the selected ('active') cards are added to the game
     parseCards(cards)
     {
         let activeCards = [];
@@ -47,10 +51,6 @@ class Game extends React.Component
 
     render()
     {
-        /**
-         * Night count and toggle between night and day
-         * Add a finish button which celebrates, logs history, and takes them back to selection
-         */
         return (
             <div className="game">
                 <span className="counter">Round {this.state.dayNum}</span>
@@ -62,6 +62,7 @@ class Game extends React.Component
         );
     };
 
+    //Removes all of the discarded cards. Resets the steps and updates the day number
     navNextDay()
     {
         let cards = this.state.activeCards;
@@ -75,6 +76,7 @@ class Game extends React.Component
         this.setNight();
     };
 
+    // If the card was flagged for discard, then add it to our discarded cards array
     discardCard(card, index)
     {   
         if(card.discard === true)
@@ -87,9 +89,11 @@ class Game extends React.Component
             });
         }
 
+        //Returns true or false for the filter function
         return card.discard !== true;
     };
     
+    //Updates the current step, checks to discard. 
     next()
     {
         let state = this.state;
@@ -109,6 +113,7 @@ class Game extends React.Component
         // TODO: Some cards automatically discard, this function should discard those cards
     };
     
+    //Checks to lighten the background
     checkIsDay()
     {
         let ele = document.getElementById('root');
@@ -118,6 +123,7 @@ class Game extends React.Component
         }
     };
 
+    //Go back in a step
     prev()
     {
         if(this.state.currentStep > 1)
@@ -129,18 +135,20 @@ class Game extends React.Component
         }
     };
 
+    //changes the css back to dark theme
     setNight()
     {   
         document.getElementById('root').classList = '';
     };
 
+    //Gets the index of the step and returns the card at that index
     getActiveCard()
     {
         const index = this.state.currentStep - 1;
         const card = this.state.activeCards[index];
         let handleClick = null;
 
-        // Add a flag for discarded cards
+        // Add a flag for discarded cards that allows a card to be discarded
         if(card.discard !== true)
         {
             handleClick = (card.required !== 1)? this.discard : null;
@@ -159,6 +167,7 @@ class Game extends React.Component
         return " No Cards Selected";
     };
 
+    //Flag a card for discard and navigate to the next step
     discard(index)
     {
         let cards = this.state.activeCards;
@@ -169,6 +178,7 @@ class Game extends React.Component
         this.next();
     };
 
+    //Renders a collapsable discard pile if there is anything in the discardedCards
     getDiscard()
     {
         this.restoreCard = this.restoreCard.bind(this);
@@ -190,8 +200,10 @@ class Game extends React.Component
     restoreCard(card)
     {
         console.log(card);
+        // TO DO add a card back at the original index
     }
 
+    //Updates the steps and shows the progress in a progess bar
     getProgress()
     {
         return <Progress
