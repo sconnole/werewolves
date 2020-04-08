@@ -9,6 +9,8 @@ import DiscardPile from './libs/DiscardPile'
  * 
  * Tracks current steps, current cards, the phase, and the day
  * See individual functions for more comments
+ * 
+ * TO DO Look into using 'useContext' for state
  */
 class Game extends React.Component 
 {
@@ -172,6 +174,7 @@ class Game extends React.Component
     {
         let cards = this.state.activeCards;
         cards[index].discard = true;
+        cards[index].orginalIndex = index;
         this.setState({
             activeCards: cards
         });
@@ -197,11 +200,28 @@ class Game extends React.Component
         />
     }
 
-    restoreCard(card)
+    restoreCard(card, index)
     {
-        console.log(card);
-        // TO DO add a card back at the original index
-    }
+        delete card.discard;
+        this.setState({
+            activeCards: this.restoreActiveCard(card),
+            discardedCards: this.removeDiscard(index)
+        });
+    };
+    
+    restoreActiveCard(card)
+    {
+        let cards = this.state.activeCards;
+        cards.splice(card.orginalIndex, 0, card);
+        return cards;
+    };
+
+    removeDiscard(index)
+    {
+        let cards = this.state.discardedCards;
+        cards.splice(index, 1);
+        return cards;
+    };
 
     //Updates the steps and shows the progress in a progess bar
     getProgress()

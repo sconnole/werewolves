@@ -21,16 +21,15 @@ function Collapse(props)
             className += " open fadeIn";
         }
         return className;
-    }
+    };
 
     return (
         <div className={getContainerClass(open)}>
             <span className={getClassName("menu-text", !open)}>{props.menuText}</span>
             <div 
-                onClick={() => {
-                    toggle((open===true)? false : true);
-                }}
-                className={getClassName("menu", !open)}>
+                onClick={() => { toggle(!open); }}
+                className={getClassName("menu", !open)}
+            >
                 <span></span>
                 <span></span>
                 <span></span>

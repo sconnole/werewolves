@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function CardSelection(props)
+export default function CardSelection(props)
 {
     function getClassName()
     {
@@ -22,4 +22,14 @@ function CardSelection(props)
     );
 };
 
-export default CardSelection;
+export function RestoreCard (props)
+{
+    return (
+        <div 
+            className="card-selection"
+            onClick={() => { props.onClick(props.card, props.index); }}
+        >
+            <div className="title">{props.name}</div>
+        </div>
+    );
+};
