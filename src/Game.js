@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Progress from './libs/Progress'
 import Card from './libs/Card'
 import Collapse from './libs/Collapse'
@@ -11,27 +11,20 @@ import DiscardPile from './libs/DiscardPile'
  * See individual functions for more comments
  * 
  * TO DO Look into using 'useContext' for state
+ * 
+ * Code was originally written using the component structure. (See Game-old.js)
+ * Refactored to function based and 'useState'
  */
-class Game extends React.Component 
+function Game(props)
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {
-            currentStep: 1,
-            activeCards: this.parseCards(props.cards),
-            discardedCards: [],
-            phase: 'night',
-            dayNum: 1
-        };
-
-        this.next = this.next.bind(this);
-        this.prev = this.prev.bind(this);
-        this.discard = this.discard.bind(this);
-    };
+    const [step, setStep] = useState(1);
+    const [activeCards, setActiveCards] = useState(parseCards(props.cards));
+    const [discardedCards, setDiscardedCards] = useState([]);
+    const [dayNum, setDayNum] = useState(1);
+    const rootId = 'root';
 
     //Loops through all of the cards to make sure only the selected ('active') cards are added to the game
-    parseCards(cards)
+    function parseCards(cards)
     {
         let activeCards = [];
         let length = cards.length;
@@ -51,109 +44,86 @@ class Game extends React.Component
         return activeCards;
     };
 
-    render()
-    {
-        return (
-            <div className="game">
-                <span className="counter">Round {this.state.dayNum}</span>
-                {this.getActiveCard()}
-                <button onClick={() => this.navNextDay()} className="next-day">Next Day</button>
-                {this.getDiscard()}
-                {this.getProgress()}
-            </div>
-        );
-    };
-
     //Removes all of the discarded cards. Resets the steps and updates the day number
-    navNextDay()
+    function navNextDay()
     {
-        let cards = this.state.activeCards;
-        cards = this.state.activeCards.filter((card, index) => this.discardCard(card, index));
-        this.setState({
-            currentStep: 1,
-            activeCards: cards,
-            dayNum: this.state.dayNum + 1
-        });
+        let cards = activeCards.filter((card, index) => discardCard(card, index));
+        setActiveCards(cards);
 
-        this.setNight();
+        setStep(1);
+        setDayNum(dayNum + 1);
+        setNight();
     };
 
     // If the card was flagged for discard, then add it to our discarded cards array
-    discardCard(card, index)
+    function discardCard(card, index)
     {   
         if(card.discard === true)
         {
             card.orginalIndex = index;
-            let cards = this.state.discardedCards;
+            let cards = discardedCards;
             cards.push(card);
-            this.setState({
-                discardedCards: cards
-            });
+            setDiscardedCards(cards);
         }
 
         //Returns true or false for the filter function
         return card.discard !== true;
     };
-    
+
     //Updates the current step, checks to discard. 
-    next()
+    function next()
     {
-        let state = this.state;
-        if(state.activeCards.length > state.currentStep)
+        if(activeCards.length > step)
         {
-            this.setState({
-                currentStep: state.currentStep + 1
-            });
+            setStep(step + 1);
         }
         
-        this.checkToDiscard();        
-        this.checkIsDay();
+        checkToDiscard();        
+        checkIsDay();
     };
 
-    checkToDiscard()
+    function checkToDiscard()
     {
         // TODO: Some cards automatically discard, this function should discard those cards
     };
-    
+
     //Checks to lighten the background
-    checkIsDay()
+    function checkIsDay()
     {
-        let ele = document.getElementById('root');
-        if(this.state.activeCards.length-1 === this.state.currentStep)
+        let ele = document.getElementById(rootId);
+        if(activeCards.length - 1 === step)
         {
             ele.classList.add('day-time'); 
         }
     };
 
     //Go back in a step
-    prev()
+    function prev()
     {
-        if(this.state.currentStep > 1)
+        if(step > 1)
         {
-            this.setState({
-                currentStep: this.state.currentStep - 1
-            });
-            this.setNight();
+            setStep(step - 1)
+            setNight();
         }
     };
 
     //changes the css back to dark theme
-    setNight()
+    function setNight()
     {   
-        document.getElementById('root').classList = '';
+        document.getElementById(rootId).classList = '';
     };
 
     //Gets the index of the step and returns the card at that index
-    getActiveCard()
+    function getActiveCard()
     {
-        const index = this.state.currentStep - 1;
-        const card = this.state.activeCards[index];
+        const index = step - 1;
+        const card = activeCards[index];
         let handleClick = null;
 
         // Add a flag for discarded cards that allows a card to be discarded
         if(card.discard !== true)
         {
-            handleClick = (card.required !== 1)? this.discard : null;
+            handleClick = (card.required !== 1)? discard : null;
         }
 
         if(card)
@@ -170,69 +140,80 @@ class Game extends React.Component
     };
 
     //Flag a card for discard and navigate to the next step
-    discard(index)
+    function discard(index)
     {
-        let cards = this.state.activeCards;
+        let cards = activeCards;
         cards[index].discard = true;
         cards[index].orginalIndex = index;
-        this.setState({
-            activeCards: cards
-        });
-        this.next();
+        setActiveCards(cards);
+        next();
     };
 
-    //Renders a collapsable discard pile if there is anything in the discardedCards
-    getDiscard()
+    //Renders a collapsable discard pile if there is anything in the discardedCards array
+    function getDiscard()
     {
-        this.restoreCard = this.restoreCard.bind(this);
-
-        if(this.state.discardedCards.length === 0)
+        if(discardedCards.length === 0)
         {
             return;
         }
 
         return <Collapse
             content={<DiscardPile
-                cards={this.state.discardedCards}
-                restoreCard={this.restoreCard}
+                cards={discardedCards}
+                restoreCard={restoreCard}
             />}
             menuText="Discard"
         />
-    }
+    };
 
-    restoreCard(card, index)
+    function restoreCard(card, index)
     {
         delete card.discard;
-        this.setState({
-            activeCards: this.restoreActiveCard(card),
-            discardedCards: this.removeDiscard(index)
-        });
-    };
-    
-    restoreActiveCard(card)
-    {
-        let cards = this.state.activeCards;
-        cards.splice(card.orginalIndex, 0, card);
-        return cards;
+        setActiveCards(restoreActiveCard(card));
+        setDiscardedCards(removeDiscard(index));
     };
 
-    removeDiscard(index)
+    function restoreActiveCard(card)
     {
-        let cards = this.state.discardedCards;
+        let cards = activeCards;
+        cards.splice(card.orginalIndex, 0, card);
+        // Must use the spread operator to create a new array, otherwise react doesn't re-render
+        return [...cards];
+    };
+
+    function removeDiscard(index)
+    {
+        let cards = discardedCards
         cards.splice(index, 1);
-        return cards;
+        // Must use the spread operator to create a new array, otherwise react doesn't re-render
+        return [...cards];
     };
 
     //Updates the steps and shows the progress in a progess bar
-    getProgress()
+    function getProgress()
     {
         return <Progress
-            currentStep={this.state.currentStep}
-            steps={this.state.activeCards.length}
-            prevClick={this.prev}
-            nextClick={this.next}
+            currentStep={step}
+            steps={activeCards.length}
+            prevClick={prev}
+            nextClick={next}
         />;
     };
+
+    useEffect(() => 
+    {
+        console.log(discardedCards);
+    }, [discardedCards])
+
+    return (
+        <div className="game">
+            <span className="counter">Round {dayNum}</span>
+            {getActiveCard()}
+            <button onClick={() => navNextDay()} className="next-day">Next Day</button>
+            {getDiscard()}
+            {getProgress()}
+        </div>
+    );    
 }
 
 export default Game;
