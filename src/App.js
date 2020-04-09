@@ -59,8 +59,8 @@ class App extends React.Component
     {
         let height = window.innerHeight;
         height = height + 'px';
-        document.getElementById('root').style.height = height;
-        document.getElementById('app').style.height = height;
+        document.getElementById('root').style.minHeight = height;
+        document.getElementById('app').style.minHeight = height;
     };
 
     render()

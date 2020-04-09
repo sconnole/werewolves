@@ -4,7 +4,8 @@
     transition: background-color .5s;
 }
 .werewolf {
-    margin: 64px;
+    margin: auto;
+    max-width: 240px;
 }
 #root.day-time {
     color: #1c1f24 ;
@@ -142,6 +143,7 @@ nav {
     display:flex;
     flex-direction: row;
     background: #717c92;
+    height: 53px;
 }
 nav ul {
     display:flex;
