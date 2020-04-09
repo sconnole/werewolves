@@ -1,8 +1,10 @@
 #root {
     background-color: #1c1f24 ;
-    min-height: 100vh;
     color: #f1f2f4;
     transition: background-color .5s;
+}
+.werewolf {
+    margin: 64px;
 }
 #root.day-time {
     color: #1c1f24 ;
@@ -72,7 +74,6 @@ button.next-day {
 }
 .App {
     margin: auto;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -86,7 +87,7 @@ button.next-day {
 .App > .game {
     flex-direction: column;
     flex: 1 1;
-    padding: 0px 24px;
+    padding: 0px 24px 36px;
     position: relative;
 }
 .card {

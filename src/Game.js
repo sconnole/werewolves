@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Progress from './libs/Progress'
 import Card from './libs/Card'
 import Collapse from './libs/Collapse'
@@ -199,11 +199,6 @@ function Game(props)
             nextClick={next}
         />;
     };
-
-    useEffect(() => 
-    {
-        console.log(discardedCards);
-    }, [discardedCards])
 
     return (
         <div className="game">
