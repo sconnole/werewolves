@@ -1,3 +1,6 @@
+# Try it here
+[Click here to see it in action](https://seanconnole.com/werewolves/setup)
+
 ## Rules
 For those who are less familiar with the core idea of werewolves [here is a link](https://www.playwerewolf.co/rules).
 
